@@ -47,7 +47,7 @@ In this project I used H2 in-memory, you can see h2 dashboard running [this link
 ***3.2. Documentation
 In this project I used OpenApi, you can see swagger running in [this link](http://localhost:8080/swagger-ui/index.html) after to runner the application local.***
 You can see the documentation in [this link](https://movie-batle.herokuapp.com/swagger-ui/index.html)
-The file openapi.yaml is disponible in the project too. 
+and the file openapi.yaml is disponible in the project too. 
 
 ```
 
@@ -60,6 +60,8 @@ The server will start at <http://localhost:8080>.
 
 ## Deploy
 The application is hosted on [Heroku](https://id.heroku.com/login)
+
+You can use the aplication through [this endpoint](https://movie-batle.herokuapp.com/swagger-ui/index.html)
 ```
 1. POST https://movie-batle.herokuapp.com/game/create - Create a game
 
