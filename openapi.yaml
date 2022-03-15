@@ -1,0 +1,190 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /user:
+    post:
+      tags:
+        - user-controller
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserResponseDetail'
+  /game/create:
+    post:
+      tags:
+        - game-controller
+      operationId: createGame
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GameResponseDto'
+  /authenticate:
+    post:
+      tags:
+        - auth-controller
+      operationId: createAuthenticationToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /ranking:
+    get:
+      tags:
+        - ranking-controller
+      operationId: resultGame
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RankingDto'
+  /game/result/{movie_id}:
+    get:
+      tags:
+        - game-controller
+      operationId: resultGame_1
+      parameters:
+        - name: user_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: game_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: movie_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResultGameDto'
+  /game/finish/{game_id}:
+    get:
+      tags:
+        - game-controller
+      operationId: finishGame
+      parameters:
+        - name: game_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GameDto'
+components:
+  schemas:
+    UserDto:
+      type: object
+      properties:
+        password:
+          type: string
+        email:
+          type: string
+        user_name:
+          type: string
+    UserResponseDetail:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+    GameDto:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+    GameResponseDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        movie_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieDto'
+    MovieDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        certificate:
+          type: string
+        runtime:
+          type: string
+        genre:
+          type: string
+        director:
+          type: string
+        release_year:
+          type: integer
+          format: int64
+    RankingDto:
+      type: object
+      properties:
+        point:
+          type: integer
+          format: int32
+        user_id:
+          type: integer
+          format: int64
+    ResultGameDto:
+      type: object
+      properties:
+        message:
+          type: string
