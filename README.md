@@ -26,6 +26,8 @@ The application defines following REST APIs
 4. GET /game/result/{movie_id}?user_id={user_id}&game_id={game_id} - Use thi endpoint to play the game, you wil need provide the movie_id that you think that have better avaliation.
 
 5. GET /game/result/ - List the ranking
+
+6. GET /game/finish/ - To end the game
 ```
 
 ## Steps to Setup
@@ -44,6 +46,7 @@ In this project I used H2 in-memory, you can see h2 dashboard running [this link
 
 ***3.2. Documentation
 In this project I used OpenApi, you can see swagger running in [this link](http://localhost:8080/swagger-ui/index.html) after to runner the application local.***
+You can see the documentation in [this link](https://movie-batle.herokuapp.com/swagger-ui/index.html)
 The file openapi.yaml is disponible in the project too. 
 
 ```
@@ -54,6 +57,22 @@ mvn spring-boot:run
 ```
 
 The server will start at <http://localhost:8080>.
+
+## Deploy
+The application is hosted on [Heroku](https://id.heroku.com/login)
+```
+1. POST https://movie-batle.herokuapp.com/game/create - Create a game
+
+2. POST https://movie-batle.herokuapp.com/user - Create new user
+
+3. POST https://movie-batle.herokuapp.com/authenticate - Autenticate with user informations
+
+4. GET https://movie-batle.herokuapp.com/game/result/{movie_id}?user_id={user_id}&game_id={game_id} - Use thi endpoint to play the game, you wil need provide the movie_id that you think that have better avaliation.
+
+5. GET https://movie-batle.herokuapp.com/game/result/ - List the ranking
+
+6. GET https://movie-batle.herokuapp.com/game/finish/ - To end the game
+```
 
 ## Running integration tests
 
