@@ -1,4 +1,4 @@
-# Movies Battle.
+# Movies Battle
 # Creating Rest APIs with Spring and H2
 
 ## Requirements
