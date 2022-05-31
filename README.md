@@ -1,3 +1,4 @@
+[![GitHub-Actions Example-PRD](https://github.com/Jonajor/movies-battle/actions/workflows/ci-prod.yml/badge.svg)](https://github.com/Jonajor/movies-battle/actions/workflows/ci-prod.yml)
 # Movies Battle
 # Creating Rest APIs with Spring and H2
 
